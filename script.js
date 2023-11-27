@@ -10,7 +10,8 @@ const conseguirObras = () => {
       obras.forEach(obra => {
         let obraInfo = {
           posicion: { lat: obra.punto.coordinates[1], lng: obra.punto.coordinates[0] },
-          nombre: obra.nombre_sede
+          nombre: obra.nombre_sede,
+
         };
 
         obrasInfo.push(obraInfo);
@@ -31,7 +32,10 @@ const conseguirPuentes = () => {
       puentes.forEach(puente => {
         let puenteInfo = {
           posicion: { lat: puente.punto.coordinates[1], lng: puente.punto.coordinates[0] },
-          nombre: puente.NombreProy
+          nombre: puente.NombreProy,
+          FechaDeInicio: puente.Fecha_Inicio,
+          FechaDeFin: puente.Fecha_Fin,
+          PorcentajeDeAvance: puente.Porcentaje_avance
         };
 
         puentesInfo.push(puenteInfo);
@@ -112,7 +116,7 @@ const crearMapaYUbicar = (obj) => {
       marker.addListener('click', () => {
         // Show a popup with the message when the marker is clicked
         const infoWindow = new google.maps.InfoWindow({
-          content: 'Hola'
+          content: `NOMBRE DE LA OBRA: ${puente.nombre}<br>Fecha de Inicio: ${puente.FechaDeInicio}<br>Fecha de Fin: ${puente.FechaDeFin}<br>Porcentaje de avance: ${puente.PorcentajeDeAvance}`
         });
         infoWindow.open(mapa, marker);
       });
