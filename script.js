@@ -74,7 +74,7 @@ const crearMapaYUbicar = (obj) => {
   return new Promise((resolve, reject) => {
     let mapa = new google.maps.Map(document.getElementById('map'), {
       center: obj,
-      zoom: 4
+      zoom: 10
     });
 
     let marcadorUsuario = new google.maps.Marker({
